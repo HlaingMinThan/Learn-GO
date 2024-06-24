@@ -1,29 +1,24 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-)
+import "fmt"
 
 func main() {
-	// welcome := "greeting"
-	// fmt.Println(strings.Contains(welcome, "g"))
-	// fmt.Println(strings.ReplaceAll(welcome, "e", "a")) //graating
-	// fmt.Println(strings.Index(welcome, "ting"))        //4
-	// fmt.Println(strings.ToUpper(welcome))              //GREETING
-	// fmt.Println(strings.Split(welcome, "t"))           //GREETING
 
-	//sort and search slices int
-	// numbers := []int{5, 10, 3}
-	// sort.Ints(numbers) //override the original slices
-	// fmt.Println(numbers)
+	//while loop example
+	// i := 0
+	// for i < 10 {
+	// 	fmt.Printf("i is %v \n", i)
+	// 	i++
+	// }
 
-	// ages := []int{10, 20, 30, 40, 40, 50}
-	// fmt.Println(sort.SearchInts(ages, 40))
+	//for loop example
+	names := []string{"hmt", "test"}
+	// for j := 0; j < len(names); j++ {
+	// 	fmt.Printf("name %v is %v \n", j+1, names[j])
+	// }
 
-	//sort and search slices string
-	names := []string{"mario", "luigi", "yoshi"}
-	sort.Strings(names)
-	fmt.Println(names)
-	fmt.Println(sort.SearchStrings(names, "yoshi"))
+	//for range loop example
+	for index, name := range names {
+		fmt.Printf("name %v is %v \n", index+1, name)
+	}
 }
