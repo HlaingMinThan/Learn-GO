@@ -20,5 +20,8 @@ func main() {
 	//for range loop example
 	for index, name := range names {
 		fmt.Printf("name %v is %v \n", index+1, name)
+		name = "test" //not work
 	}
+
+	fmt.Println(names)
 }
