@@ -1,29 +1,27 @@
 package main
 
-import "fmt" //formatting
+import "fmt"
 
-// go will automatically fire this "main" function
-// How to run - go run filename
+//formatting
+
 func main() {
-	// age := 23
-	// name := "hlaing min than"
-	number := 23.55
+	//array
+	// var ages [3]int = [3]int{10, 20}
 
-	//Printf (print with formatted string)
-	// %v
-	// fmt.Printf("My name is %v.my age is %v", name, age)
+	// var ages = [3]int{1, 2, 3}
+	// ages[1] = 100
+	// ages := [3]int{1, 2, 3}
 
-	// %q
-	// fmt.Printf("My name is %q.my age is %q", name, age) //quote is only for string
+	// fmt.Println(ages)
+	// fmt.Println(len(ages)) //get array length
 
-	// %T
-	// fmt.Printf("name is a type of %T", name)
+	//slices push -> apppend can only used on slices
+	slices := []int{1, 2, 3, 4}
+	slices = append(slices, 30)
 
-	// %f
-	// %0.1f
-	// fmt.Printf("age is %0.1f", number)
-
-	//Sprintf (save print with formatted string)
-	var saved = fmt.Sprintf("age is %0.1f", number)
-	fmt.Println(saved)
+	// fmt.Println(slices)
+	// fmt.Println(len(slices))
+	// fmt.Println(slices[1:3]) // ranges[index:index] -> ans : [2,3]
+	fmt.Println(slices[:3]) // ranges[index:index] -> ans : [1,2,3]
+	fmt.Println(slices[1:]) // ranges[index:index] -> ans : [2,3,4,30]
 }
