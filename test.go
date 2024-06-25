@@ -2,24 +2,29 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"strings"
 )
 
-func sayGreeting(name string) {
-	time.Sleep(3)
-	fmt.Println("Hello " + name)
-}
-func bye(name string) {
-	fmt.Println("Hello " + name)
+func initials(name string) (string, string) {
+	initials := []string{}
+	splittedNames := strings.Split(name, " ")
+	for _, name := range splittedNames {
+		upperCase := strings.ToUpper(name)
+		initials = append(initials, upperCase[:1])
+	}
+	if len(initials) > 1 {
+		return initials[0], initials[1]
+	}
+	return initials[0], "_"
 }
 
-func loopNames(names []string, f func(name string)) {
-	for _, name := range names {
-		f(name)
-	}
-}
 func main() {
-	names := []string{"hlaing min than", "Aung Aung", "Kyaw Kyaw"}
-	loopNames(names, sayGreeting)
-	// bye("hlaing min than")
+	name1 := "Hlaing Min"
+	name2 := "Zaw"
+
+	s1, s2 := initials(name1)
+	fmt.Println(s1, s2)
+
+	s3, s4 := initials(name2)
+	fmt.Println(s3, s4)
 }
