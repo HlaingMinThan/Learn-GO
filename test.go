@@ -1,27 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func main() {
+func sayGreeting(name string) {
+	time.Sleep(3)
+	fmt.Println("Hello " + name)
+}
+func bye(name string) {
+	fmt.Println("Hello " + name)
+}
 
-	//while loop example
-	// i := 0
-	// for i < 10 {
-	// 	fmt.Printf("i is %v \n", i)
-	// 	i++
-	// }
-
-	//for loop example
-	names := []string{"hmt", "test"}
-	// for j := 0; j < len(names); j++ {
-	// 	fmt.Printf("name %v is %v \n", j+1, names[j])
-	// }
-
-	//for range loop example
-	for index, name := range names {
-		fmt.Printf("name %v is %v \n", index+1, name)
-		name = "test" //not work
+func loopNames(names []string, f func(name string)) {
+	for _, name := range names {
+		f(name)
 	}
-
-	fmt.Println(names)
+}
+func main() {
+	names := []string{"hlaing min than", "Aung Aung", "Kyaw Kyaw"}
+	loopNames(names, sayGreeting)
+	// bye("hlaing min than")
 }
