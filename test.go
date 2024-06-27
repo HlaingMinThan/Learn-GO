@@ -5,5 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println(newBill("HMT")) //not override the original name
+	bill := newBill("HMT")
+
+	fmt.Println(bill.format()) //not override the original name
 }
