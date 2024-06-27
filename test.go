@@ -1,10 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
+	createBill()
 	bill := newBill("HMT")
 	bill.updateTip(10)
 	bill.addItem("Onion", 5)

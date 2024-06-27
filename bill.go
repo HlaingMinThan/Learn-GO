@@ -1,11 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 type bill struct {
 	name  string
 	items map[string]float64
 	tip   float64
+}
+
+func createBill() {
+	//get user input string value
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("What is the bill name?")
+	name, _ := reader.ReadString('\n') //this will run when user hit enter
+
+	fmt.Println(name)
 }
 
 func newBill(n string) bill {
