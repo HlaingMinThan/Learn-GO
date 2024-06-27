@@ -28,6 +28,15 @@ func (b bill) format() string {
 		fs += fmt.Sprintf("%-25v  ....$%v\n", k+":", v)
 	}
 
+	fs += fmt.Sprintf("%-25v  ....$%v\n", "Tip:", b.tip)
 	fs += fmt.Sprintf("%-25v  ....$%v\n", "Total:", total)
 	return fs
+}
+
+func (b *bill) updateTip(tip float64) {
+	// we don't need asterisk on struct b, go willl automatically dereference
+	b.tip = tip
+}
+func (b *bill) addItem(name string, price float64) {
+	b.items[name] = price
 }
