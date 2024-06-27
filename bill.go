@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type bill struct {
@@ -12,13 +13,26 @@ type bill struct {
 	tip   float64
 }
 
-func createBill() {
+func getInput(prompt string, r *bufio.Reader) (string, error) {
+	fmt.Println(prompt)
+	input, err := r.ReadString('\n') //this will run when user hit enter
+	return input, err
+}
+
+func createBill() bill {
 	//get user input string value
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("What is the bill name?")
-	name, _ := reader.ReadString('\n') //this will run when user hit enter
+	name, _ := getInput("Type Your Name", reader)
+	name = strings.TrimSpace(name)
+	bill := newBill(name)
+	fmt.Println("created bill for " + bill.name)
+	return bill
+}
 
-	fmt.Println(name)
+func promptOptions(b bill) {
+	reader := bufio.NewReader(os.Stdin)
+	option, _ := getInput("a - add item, s - save bill, t - tip bill", reader)
+	option = strings.TrimSpace(option)
 }
 
 func newBill(n string) bill {
