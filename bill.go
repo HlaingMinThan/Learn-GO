@@ -39,6 +39,7 @@ func promptOptions(b bill) {
 	case "a":
 		name, _ := getInput("Item Name:", reader)
 		price, _ := getInput("Item Price:", reader)
+		name = strings.TrimSpace(name)
 		price = strings.TrimSpace(price)
 		p, _ := strconv.ParseFloat(price, 64)
 		b.addItem(name, p)
