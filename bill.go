@@ -44,15 +44,14 @@ func promptOptions(b bill) {
 		b.addItem(name, p)
 		promptOptions(b)
 	case "s":
-		fs := b.format()
-		fmt.Println(fs)
+		b.save()
 	case "t":
 		tip, _ := getInput("Tip Amount:", reader)
 		tip = strings.TrimSpace(tip)
 		t, _ := strconv.ParseFloat(tip, 64)
 		b.updateTip(t)
-		fs := b.format()
-		fmt.Println(fs)
+		fmt.Println("added tip to bill")
+		promptOptions(b)
 	default:
 		fmt.Println("Invalid Option")
 		promptOptions(b)
@@ -88,4 +87,13 @@ func (b *bill) updateTip(tip float64) {
 }
 func (b *bill) addItem(name string, price float64) {
 	b.items[name] = price
+}
+func (b *bill) save() {
+	bytes := []byte(b.format())
+	err := os.WriteFile("bills/"+b.name+".txt", bytes, 0644)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Bill was saved to file")
 }
